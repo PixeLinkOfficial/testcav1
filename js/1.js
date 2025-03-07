@@ -864,24 +864,14 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(`Stored selected item: ${selectedItem}`);
     
     // Find the corresponding target element (scX) based on the stored item number
-    const target = document.getElementById(`sc${selectedItem}`);
+    document.querySelector(`.${selectedItem}`).click();
     
-    if (target) {
-      console.log(`Scrolling to: ${target.id}`);
-      scrollToElement(target); // Scroll to the target element
-    } else {
-      console.error(`Target element with ID sc${selectedItem} not found`);
-    }
+    
     
     // Clear the localStorage item after the action to prevent unwanted behavior on future page loads
     localStorage.removeItem('selectedItem');
   } else {
     console.log("No selected item in localStorage");
-  }
-
-  function scrollToElement(target) {
-    const offset = target.getBoundingClientRect().top + window.scrollY; // Get the position of the target element
-    window.scrollTo({ top: offset - 130, behavior: 'auto' }); // Scroll to target with 10px offset, no animation
   }
 });
 
