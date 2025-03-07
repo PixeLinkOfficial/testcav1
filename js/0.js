@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
           console.log(`Clicked: ii${i}`);
           // Store the selected item in localStorage
-          localStorage.setItem('selectedItem', `item${i}`); // Store the item number
+          localStorage.setItem('selectedItem', i); // Store the item number
           // Redirect to 1.html
           window.location.href = '1.html';
         });
