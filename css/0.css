@@ -199,8 +199,8 @@ footer{
 
 @keyframes slideFromRight {
     0% {
-        opacity: 0;
-        transform: translateX(100%);
+        opacity: 1;
+        transform: translateX(130%);
     }
     100% {
         opacity: 1;
@@ -210,8 +210,8 @@ footer{
 
 @keyframes slideFromLeft {
     0% {
-        opacity: 0;
-        transform: translateX(-100%);
+        opacity: 1;
+        transform: translateX(-130%);
     }
     100% {
         opacity: 1;
@@ -249,6 +249,7 @@ footer{
 .sub-grid:nth-child(20) { animation-delay: 4.65s; }
 .sub-grid:nth-child(21) { animation-delay: 4.85s; }
 
+
 /* Img Animation Alternating */
 .sub-grid:nth-child(odd) .img {
     animation: slideFromLeft 1.5s ease-out forwards;
@@ -263,14 +264,3 @@ footer{
 }
 
 /* Name Animation Alternating */
-.sub-grid:nth-child(odd) .name {
-    animation: slideFromRight 1.5s ease-out forwards;
-    opacity: 0;
-    animation-delay: calc(inherit + 0.3s); /* Slight delay after img */
-}
-
-.sub-grid:nth-child(even) .name {
-    animation: slideFromLeft 1.5s ease-out forwards;
-    opacity: 0;
-    animation-delay: calc(inherit + 0.3s); /* Slight delay after img */
-}
