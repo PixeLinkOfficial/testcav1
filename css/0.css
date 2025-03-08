@@ -157,6 +157,7 @@ footer{
     margin: 0 10px 0 10px;
     object-fit: contain; 
     overflow: visible; 
+    z-index: 1000;
 }
 .img{
     margin: 0 auto;
