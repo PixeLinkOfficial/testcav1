@@ -976,32 +976,35 @@ for (let i = 1; i <= 21; i++) {
   checkScrollPosition();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
+  // Get the stored item number from localStorage
   const selectedItem = localStorage.getItem('selectedItem');
 
   if (selectedItem) {
     console.log(`Stored selected item: ${selectedItem}`);
 
-    waitForElement(`sc${selectedItem}`, (target) => {
+    // Find the corresponding target element (scX) based on the stored item number
+    const target = document.getElementById(`sc${selectedItem}`);
+
+    if (target) {
       console.log(`Scrolling to: ${target.id}`);
-      scrollToElement(target);
-    });
+      scrollToElement(target); // Scroll to the target element
+    } else {
+      console.error(`Target element with ID sc${selectedItem} not found`);
+    }
+
+    // Clear the localStorage item after the action to prevent unwanted behavior on future page loads
+    localStorage.removeItem('selectedItem');
   } else {
     console.log("No selected item in localStorage");
   }
+
+  function scrollToElement(target) {
+    const offset = target.getBoundingClientRect().top + window.scrollY; // Get the position of the target element
+    window.scrollTo({ top: offset - 130, behavior: 'auto' }); // Scroll to target with 130px offset, no animation
+  }
 });
 
-function waitForElement(id, callback) {
-  const interval = setInterval(() => {
-    const element = document.getElementById(id);
-    if (element) {
-      clearInterval(interval); // Stop checking once found
-      callback(element);
-    }
-  }, 100); // Check every 100ms
-}
-
-function scrollToElement(target) {
   const offset = target.getBoundingClientRect().top + window.scrollY;
   window.scrollTo({ top: offset - 130, behavior: 'smooth' });
 }
