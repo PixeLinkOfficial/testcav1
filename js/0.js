@@ -83,7 +83,16 @@ buteng.addEventListener('click',()=>{
     window.location.reload(true);
 });
 
+function htlan(){
+    if(localStorage.getItem('lan')=="arb")
+    butara.click();
+    else if(localStorage.getItem('lan')=="kur")
+    butkur.click()
+    }
+    htlan();
+    
 
+localStorage.clear();
 document.addEventListener('DOMContentLoaded', () => {
     // Loop through items ii1 to ii21
     for (let i = 1; i <= 21; i++) {
@@ -107,11 +116,4 @@ document.querySelector('.iigen').addEventListener('click',()=>{
 });
   
 
-function htlan(){
-    if(localStorage.getItem('lan')=="arb")
-    butara.click();
-    else if(localStorage.getItem('lan')=="kur")
-    butkur.click()
-    }
-    htlan();
-    
+
