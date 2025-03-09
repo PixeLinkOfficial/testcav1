@@ -864,11 +864,13 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(`Stored selected item: ${selectedItem}`);
     
     // Find the corresponding target element (scX) based on the stored item number
-    const target = document.getElementById(`sc${selectedItem}`);
+    const target2 = document.getElementById(`sc${selectedItem}`);
     
-    if (target) {
-      console.log(`Scrolling to: ${target.id}`);
-      scrollToElement(target); // Scroll to the target element
+    if (target2) {
+      console.log(`Scrolling to: ${target2.id}`);
+      scrollToElement(target2); // Scroll to the target element
+      scrollToElement(target2);
+      
     } else {
       console.error(`Target element with ID sc${selectedItem} not found`);
     }
@@ -879,9 +881,9 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("No selected item in localStorage");
   }
 
-  function scrollToElement(target) {
-    const offset = target.getBoundingClientRect().top + window.scrollY; // Get the position of the target element
-    window.scrollTo({ top: offset - 130, behavior: 'auto' }); // Scroll to target with 10px offset, no animation
+  function scrollToElement(target2) {
+    const offset2 = target2.getBoundingClientRect().top + window.scrollY; // Get the position of the target element
+    window.scrollTo({ top: offset2 - 130, behavior: 'auto' }); // Scroll to target with 10px offset, no animation
   }
 });
 
