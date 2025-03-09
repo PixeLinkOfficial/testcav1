@@ -976,11 +976,33 @@ for (let i = 1; i <= 21; i++) {
   checkScrollPosition();
 }
 
-let selectedItem = Number(localStorage.getItem("selectedItem"));
-let element123 = document.querySelector(`.item${selectedItem}`);
+function waitForElement(selector, callback) {
+  const observer = new MutationObserver((mutations, obs) => {
+    const element = document.getElementById(selector);
+    if (element) {
+      callback(element);
+      obs.disconnect();
+    }
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+}
 
-if (element123) {
-    element123.click();
-} else {
-    console.log("Element not found:", `.item${selectedItem}`);
+document.addEventListener('DOMContentLoaded', () => {
+  const selectedItem = localStorage.getItem('selectedItem');
+  
+  if (selectedItem) {
+    console.log(`Stored selected item: ${selectedItem}`);
+
+    waitForElement(`sc${selectedItem}`, (target) => {
+      console.log(`Scrolling to: ${target.id}`);
+      scrollToElement(target);
+    });
+  } else {
+    console.log("No selected item in localStorage");
+  }
+});
+
+function scrollToElement(target) {
+  const offset = target.getBoundingClientRect().top + window.scrollY;
+  window.scrollTo({ top: offset - 130, behavior: 'auto' });
 }
