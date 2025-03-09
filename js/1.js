@@ -856,36 +856,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Get the stored item number from localStorage
-  const selectedItem = localStorage.getItem('selectedItem');
-  
-  if (selectedItem) {
-    console.log(`Stored selected item: ${selectedItem}`);
-    
-    // Find the corresponding target element (scX) based on the stored item number
-    const target2 = document.getElementById(`sc${selectedItem}`);
-    
-    if (target2) {
-      console.log(`Scrolling to: ${target2.id}`);
-      scrollToElement(target2); // Scroll to the target element
-      scrollToElement(target2);
-      
-    } else {
-      console.error(`Target element with ID sc${selectedItem} not found`);
-    }
-    
-    // Clear the localStorage item after the action to prevent unwanted behavior on future page loads
-    
-  } else {
-    console.log("No selected item in localStorage");
-  }
 
-  function scrollToElement(target2) {
-    const offset2 = target2.getBoundingClientRect().top + window.scrollY; // Get the position of the target element
-    window.scrollTo({ top: offset2 - 130, behavior: 'auto' }); // Scroll to target with 10px offset, no animation
-  }
-});
 
 
 
@@ -1005,6 +976,37 @@ for (let i = 1; i <= 21; i++) {
   checkScrollPosition();
 }
 
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Get the stored item number from localStorage
+  const selectedItem = localStorage.getItem('selectedItem');
+  
+  if (selectedItem) {
+    console.log(`Stored selected item: ${selectedItem}`);
+    
+    // Find the corresponding target element (scX) based on the stored item number
+    const target2 = document.getElementById(`sc${selectedItem}`);
+    
+    if (target2) {
+      console.log(`Scrolling to: ${target2.id}`);
+      scrollToElement(target2); // Scroll to the target element
+      scrollToElement(target2);
+      
+    } else {
+      console.error(`Target element with ID sc${selectedItem} not found`);
+    }
+    
+    // Clear the localStorage item after the action to prevent unwanted behavior on future page loads
+    
+  } else {
+    console.log("No selected item in localStorage");
+  }
+
+  function scrollToElement(target2) {
+    const offset2 = target2.getBoundingClientRect().top + window.scrollY; // Get the position of the target element
+    window.scrollTo({ top: offset2 - 130, behavior: 'auto' }); // Scroll to target with 10px offset, no animation
+  }
+});
 
 
 //
