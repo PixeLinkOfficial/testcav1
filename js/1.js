@@ -986,11 +986,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Find the corresponding target element (scX) based on the stored item number
     const target2 = document.getElementById(`sc${selectedItem}`);
-    
+    document.querySelector(`item${selectedItem}`).click();
     if (target2) {
       console.log(`Scrolling to: ${target2.id}`);
       scrollToElement(target2); // Scroll to the target element
-      scrollToElement(target2);
+    
       
     } else {
       console.error(`Target element with ID sc${selectedItem} not found`);
