@@ -874,7 +874,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // Clear the localStorage item after the action to prevent unwanted behavior on future page loads
-    localStorage.removeItem('selectedItem');
+    
   } else {
     console.log("No selected item in localStorage");
   }
