@@ -976,45 +976,11 @@ for (let i = 1; i <= 21; i++) {
   checkScrollPosition();
 }
 
-if (localStorage.getItem("selectedItem") == 1)  
-    document.querySelector('.item1').click();
-else if (localStorage.getItem("selectedItem") == 2)  
-    document.querySelector('.item2').click();
-else if (localStorage.getItem("selectedItem") == 3)  
-    document.querySelector('.item3').click();
-else if (localStorage.getItem("selectedItem") == 4)  
-    document.querySelector('.item4').click();
-else if (localStorage.getItem("selectedItem") == 5)  
-    document.querySelector('.item5').click();
-else if (localStorage.getItem("selectedItem") == 6)  
-    document.querySelector('.item6').click();
-else if (localStorage.getItem("selectedItem") == 7)  
-    document.querySelector('.item7').click();
-else if (localStorage.getItem("selectedItem") == 8)  
-    document.querySelector('.item8').click();
-else if (localStorage.getItem("selectedItem") == 9)  
-    document.querySelector('.item9').click();
-else if (localStorage.getItem("selectedItem") == 10)  
-    document.querySelector('.item10').click();
-else if (localStorage.getItem("selectedItem") == 11)  
-    document.querySelector('.item11').click();
-else if (localStorage.getItem("selectedItem") == 12)  
-    document.querySelector('.item12').click();
-else if (localStorage.getItem("selectedItem") == 13)  
-    document.querySelector('.item13').click();
-else if (localStorage.getItem("selectedItem") == 14)  
-    document.querySelector('.item14').click();
-else if (localStorage.getItem("selectedItem") == 15)  
-    document.querySelector('.item15').click();
-else if (localStorage.getItem("selectedItem") == 16)  
-    document.querySelector('.item16').click();
-else if (localStorage.getItem("selectedItem") == 17)  
-    document.querySelector('.item17').click();
-else if (localStorage.getItem("selectedItem") == 18)  
-    document.querySelector('.item18').click();
-else if (localStorage.getItem("selectedItem") == 19)  
-    document.querySelector('.item19').click();
-else if (localStorage.getItem("selectedItem") == 20)  
-    document.querySelector('.item20').click();
-else if (localStorage.getItem("selectedItem") == 21)  
-    document.querySelector('.item21').click();
+let selectedItem = Number(localStorage.getItem("selectedItem"));
+let element123 = document.querySelector(`.item${selectedItem}`);
+
+if (element123) {
+    element123.click();
+} else {
+    console.log("Element not found:", `.item${selectedItem}`);
+}
