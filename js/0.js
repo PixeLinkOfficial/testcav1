@@ -92,7 +92,6 @@ function htlan(){
     htlan();
     
 
-localStorage.clear();
 document.addEventListener('DOMContentLoaded', () => {
     // Loop through items ii1 to ii21
     for (let i = 1; i <= 21; i++) {
